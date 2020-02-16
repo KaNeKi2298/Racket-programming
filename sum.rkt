@@ -1,0 +1,15 @@
+#lang racket
+
+(define lis (list 1 2 3 4 5 6 7 8 9 11 12))
+
+(define (sumUpRecursive lis)
+  (if (empty? lis) 0 ( + (sumUpRecursive (cdr lis)) (car lis))
+   )
+)
+
+(define (sumUpTailRecursion lis [acc 0] )
+  (if (empty? lis) acc (sumUpTailRecursion (cdr lis) (+ acc (car lis))))
+)
+
+(sumUpTailRecursion lis 0)
+(sumUpRecursive lis)
